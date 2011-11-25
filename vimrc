@@ -1,3 +1,6 @@
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 set nocompatible
 filetype plugin on
 " allow backspacing over everything in insert mode
