@@ -1,4 +1,4 @@
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 call pathogen#helptags()
 
 set nocompatible
@@ -27,6 +27,7 @@ set nowrap              " don't wrap by default
 set completeopt=menu,longest,preview
 set confirm
 set vb t_vb=            " disable beep
+set ai
 syn on
 colorscheme elflord
 if has("mac") || has("macunix")
@@ -88,9 +89,16 @@ map ,O :i<CR><CR>.<CR>
 " Replace word under cursor with default register
 map ,r "_cw<ESC>p
 
+"PLUGINS
+"-------
+"NERDTree
+nmap <silent> <Leader>p :NERDTreeToggle<CR>
 """"""""""""""""""""""""""""""""" Autocommands """""""""""""""""""""""""""""""""
 " Change the directory where buffer is located
 autocmd BufEnter * cd %:p:h
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 """""""""""""""""""""""""""""""""" Functions """""""""""""""""""""""""""""""""""
 set diffexpr=MyDiff()
