@@ -7,3 +7,6 @@
 [submodule "bundle/javaScriptLint"]
 	path = bundle/javaScriptLint
 	url = https://github.com/joestelmach/javaScriptLint.vim.git
+[submodule "bundle/tabular"]
+	path = bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
