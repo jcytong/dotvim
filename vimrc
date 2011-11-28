@@ -93,6 +93,11 @@ map ,r "_cw<ESC>p
 "-------
 "NERDTree
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
+
+" NERDCommenter Command-/ to toggle comments
+map <D-/> <plug>NERDCommenterToggle<CR>
+imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
+
 """"""""""""""""""""""""""""""""" Autocommands """""""""""""""""""""""""""""""""
 " Change the directory where buffer is located
 autocmd BufEnter * cd %:p:h
