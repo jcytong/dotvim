@@ -19,3 +19,6 @@
 [submodule "bundle/DirDiff"]
 	path = bundle/DirDiff
 	url = https://github.com/vim-scripts/DirDiff.vim.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
