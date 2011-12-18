@@ -202,7 +202,7 @@ endfunction
 "                              JAVA DEVELOPMENT                                "
 "------------------------------------------------------------------------------"
 """"""""""""""""""""""""""""""" Code Completion """"""""""""""""""""""""""""""""
-set complete=i,],.,b,w,t,k,.
+set complete=],.,b,w,t,k
 if has("win32") || has("win16") || has("win32unix")
     set dictionary=C:\\_vim\_vimKeywords
 elseif has("mac") || has("macunix") || has("unix")
