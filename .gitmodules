@@ -25,3 +25,9 @@
 [submodule "bundle/scss-syntax"]
 	path = bundle/scss-syntax
 	url = https://github.com/cakebaker/scss-syntax.vim.git
+[submodule "Command-T"]
+	path = Command-T
+	url = https://github.com/wincent/Command-T.git
+[submodule "bundle/Command-T"]
+	path = bundle/Command-T
+	url = https://github.com/wincent/Command-T.git
