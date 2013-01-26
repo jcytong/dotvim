@@ -29,6 +29,7 @@ set confirm
 set vb t_vb=            " disable beep
 set ai
 syn on
+let mapleader = ","
 colorscheme elflord
 if has("mac") || has("macunix")
     set lines=49
