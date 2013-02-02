@@ -30,7 +30,8 @@ set vb t_vb=            " disable beep
 set ai
 syn on
 let mapleader = ","
-colorscheme elflord
+set background=dark
+colorscheme solarized
 if has("mac") || has("macunix")
     set lines=49
     set columns=90
