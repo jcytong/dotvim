@@ -1,8 +1,65 @@
-call pathogen#infect()
-call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+"call pathogen#infect()
+"call pathogen#helptags()
 
 set nocompatible
-filetype plugin on
+filetype off            "required by vundle
+"filetype plugin on
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+ "
+ " original repos on github
+ "
+ " These are interesting that I want to try someday
+ "Bundle 'danro/rename.vim'
+ "Bundle 'ervandew/supertab'
+ "Bundle 'tpope/vim-surround'
+ "Bundle 'tpope/vim-endwise'
+ 
+ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+ Bundle 'tpope/vim-fugitive'
+ Bundle 'tpope/vim-rails'
+ Bundle 'tpope/vim-markdown'
+ Bundle 'vim-ruby/vim-ruby'
+ Bundle 'wincent/Command-T'
+ Bundle 'altercation/vim-colors-solarized'
+ Bundle 'thoughtbot/vim-rspec'
+ Bundle 'vim-scripts/tComment'
+ Bundle 'gregsexton/MatchTag'
+ Bundle 'kchmck/vim-coffee-script'
+ "Bundle 'vim-scripts/greplace.vim'
+
+ " Snipmate looks cool and depends on vim-addon-mw-utils and tlib_vim
+ Bundle "MarcWeber/vim-addon-mw-utils"
+ Bundle "tomtom/tlib_vim"
+ Bundle "garbas/vim-snipmate"
+
+ "Bundle 'Lokaltog/vim-easymotion'
+
+ " vim-scripts repos
+ Bundle 'FuzzyFinder'
+ " git repos on your local machine (ie. when working on your own plugin)
+ " Bundle 'file:///Users/gmarik/path/to/plugin'
+ " ...
+
+ filetype plugin indent on     " required!
+ "
+ " Brief help
+ " :BundleList          - list configured bundles
+ " :BundleInstall(!)    - install(update) bundles
+ " :BundleSearch(!) foo - search(or refresh cache first) for foo
+ " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+ "
+ " see :h vundle for more details or wiki for FAQ
+ " NOTE: comments after Bundle command are not allowed..
+ "
+ 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 set nobackup            " DON'T keep a backup file
@@ -16,7 +73,8 @@ set tabstop=2
 set number              " line numbers
 set cindent
 set autoindent
-set mouse=a             " use mouse in xterm to scroll
+"set mouse=a             " use mouse in xterm to scroll
+set mouse=              " disable mouse in xterm so you can copy without using the option key
 set scrolloff=5         " 5 lines bevore and after the current line when scrolling
 set ignorecase          " ignore case
 set smartcase           " but don't ignore it, when search string contains uppercase letters
@@ -29,7 +87,7 @@ set confirm
 set vb t_vb=            " disable beep
 set ai
 syn on
-let mapleader = ","
+let mapleader=","
 set background=dark
 colorscheme solarized
 if has("mac") || has("macunix")
@@ -52,6 +110,8 @@ if !exists("my_auto_commands_loaded")
   " undolevels=-1 (no undo possible)
   let g:LargeFile = 1024 * 1024 * 10
   augroup LargeFile
+  let g:LargeFile = 1024 * 1024 * 10
+  augroup LargeFile
     autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > g:LargeFile | set eventignore+=FileType | setlocal noswapfile bufhidden=unload buftype=nowrite undolevels=-1 | else | set eventignore-=FileType | endif
     augroup END
   endif
@@ -64,6 +124,10 @@ com! Be call Closebufferopendir()
 """"""""""""""""""""""""""""""""""" Mappings """""""""""""""""""""""""""""""""""
 "MOVEMENT
 "--------
+" Fix weird error when arrow key maps incorrectly when using vim with tmux
+" http://superuser.com/questions/237751/messed-up-keys-in-vim-when-running-inside-tmux
+map <Esc>[B <Down>
+
 " Go to previous/next buffer with Alt-< and Alt-> respectively (angle bracket)
 map ¼ :bp <CR>
 map ¾ :bn <CR>
@@ -99,10 +163,31 @@ nmap <silent> <Leader>p :NERDTreeToggle<CR>
 " NERDCommenter Command-/ to toggle comments
 map <D-/> <plug>NERDCommenterToggle<CR>
 imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
+map <Leader>/ <plug>NERDCommenterToggle<CR>
+imap <Leader>/ <Esc><plug>NERDCommenterToggle<CR>i
+
+" Command-T plugin
+" Ignore angular dir
+set wildignore=node_modules/**,app/bower_components/**,app/images/**,dist/**,test/unit/coverage/**,karma_html/**
+
+" It triggers CommandTFlush whenever a file is written and also whenever Vim's
+" window gains focus. This is useful when you create files outside of vim - for
+" example by switching between branches in your version control system. The new
+" files will be available in CommandT immediately after you re-enter Vim.
+"
+" SO Question & Answer
+" http://stackoverflow.com/questions/3486747/run-the-commandtflush-command-when-a-new-file-is-written
+" http://stackoverflow.com/a/5791719/573486
+augroup CommandTExtension
+  autocmd!
+  autocmd FocusGained * CommandTFlush
+  autocmd BufWritePost * CommandTFlush
+augroup END
 
 """"""""""""""""""""""""""""""""" Autocommands """""""""""""""""""""""""""""""""
 " Change the directory where buffer is located
-autocmd BufEnter * cd %:p:h
+" Temporarily disable this to test out Command-T plugin
+"autocmd BufEnter * cd %:p:h
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -163,10 +248,6 @@ function! MyPatch()
     else
         echo "Unknown version of OS"
         break
-    endif
-
-    silent execute "!" . commandpath . " -o " . v:fname_out . " "
-    \ . v:fname_in " < " . v:fname_diff
 endfunction
 
 function! Gotononamebuffer()
@@ -200,6 +281,17 @@ function! Closebufferopendir()
     call Closebufferkeeptab()
     e .
 endfunction
+"------------------------------------------------------------------------------"
+"                              JavaScript DEVELOPMENT                          "
+"------------------------------------------------------------------------------"
+" autoexpanding abbreviations for insert mode
+"iab it(
+"it("", function() {
+"});
+"------------------------------------------------------------------------------"
+"                     END OF SECTION FOR JavaScript DEVELOPMENT                "
+"------------------------------------------------------------------------------"
+"
 "------------------------------------------------------------------------------"
 "                              JAVA DEVELOPMENT                                "
 "------------------------------------------------------------------------------"
