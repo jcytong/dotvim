@@ -174,7 +174,10 @@ imap <Leader>/ <Esc><plug>NERDCommenterToggle<CR>i
 
 " Command-T plugin
 " Ignore angular dir
+" Ignore rails
 set wildignore=node_modules/**,app/bower_components/**,app/images/**,dist/**,test/unit/coverage/**,karma_html/**
+set wildignore+=vendor/**,tmp/**
+let g:CommandTScanDotDirectories=".tmp/**"
 
 " It triggers CommandTFlush whenever a file is written and also whenever Vim's
 " window gains focus. This is useful when you create files outside of vim - for
