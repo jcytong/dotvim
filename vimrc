@@ -67,6 +67,7 @@ Plugin 'gmarik/vundle'
  
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+set t_Co=256
 set nobackup            " DON'T keep a backup file
 set history=50          " keep 50 lines of command line history
 set ruler               " show the cursor position all the time
