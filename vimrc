@@ -193,6 +193,22 @@ augroup CommandTExtension
   autocmd BufWritePost * CommandTFlush
 augroup END
 
+" vim-coffee-script plugin
+" https://github.com/kchmck/vim-coffee-script#two-space-indentation
+" https://github.com/kchmck/vim-coffee-script#fold-by-indentation
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable 
+
+" vim-rspec
+" https://github.com/thoughtbot/vim-rspec/blob/master/README.md
+map <Leader>s :call RunCurrentSpecFile()<CR>
+map <Leader>n :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+" vim-airline
+" https://github.com/bling/vim-airline#straightforward-customization
+let g:airline#extensions#tabline#enabled = 1
 """"""""""""""""""""""""""""""""" Autocommands """""""""""""""""""""""""""""""""
 " Change the directory where buffer is located
 " Temporarily disable this to test out Command-T plugin
