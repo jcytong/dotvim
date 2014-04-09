@@ -6,54 +6,63 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-" My Bundles here:
+" My Plugins here:
  "
  " original repos on github
  "
  " These are interesting that I want to try someday
- "Bundle 'danro/rename.vim'
- "Bundle 'ervandew/supertab'
- "Bundle 'tpope/vim-surround'
- "Bundle 'tpope/vim-endwise'
+ "Plugin 'danro/rename.vim'
+ "Plugin 'ervandew/supertab'
+ "Plugin 'tpope/vim-surround'
+ "Plugin 'tpope/vim-endwise'
  
- Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
- Bundle 'tpope/vim-fugitive'
- Bundle 'tpope/vim-rails'
- Bundle 'tpope/vim-markdown'
- Bundle 'vim-ruby/vim-ruby'
- Bundle 'wincent/Command-T'
- Bundle 'altercation/vim-colors-solarized'
- Bundle 'thoughtbot/vim-rspec'
- Bundle 'vim-scripts/tComment'
- Bundle 'gregsexton/MatchTag'
- Bundle 'kchmck/vim-coffee-script'
- "Bundle 'vim-scripts/greplace.vim'
+ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+ Plugin 'tpope/vim-fugitive'
+ Plugin 'tpope/vim-rails'
+ Plugin 'tpope/vim-markdown'
+ Plugin 'vim-ruby/vim-ruby'
+ Plugin 'wincent/Command-T'
+ Plugin 'altercation/vim-colors-solarized'
+ Plugin 'thoughtbot/vim-rspec'
+ Plugin 'gregsexton/MatchTag'
+ Plugin 'kchmck/vim-coffee-script'
+ Plugin 'terryma/vim-multiple-cursors'
+ Plugin 'scrooloose/nerdcommenter'
+ Plugin 'scrooloose/nerdtree'
+ Plugin 'scrooloose/syntastic'
+ Plugin 'cakebaker/scss-syntax.vim'
+ Plugin 'godlygeek/tabular'
+ Plugin 'Yggdroot/indentLine'
+ Plugin 'bling/vim-airline'
+ "Plugin 'vim-scripts/greplace.vim'
 
  " Snipmate looks cool and depends on vim-addon-mw-utils and tlib_vim
- Bundle "MarcWeber/vim-addon-mw-utils"
- Bundle "tomtom/tlib_vim"
- Bundle "garbas/vim-snipmate"
+ Plugin 'MarcWeber/vim-addon-mw-utils'
+ Plugin 'tomtom/tlib_vim'
+ Plugin 'garbas/vim-snipmate'
 
- "Bundle 'Lokaltog/vim-easymotion'
+ "Plugin 'Lokaltog/vim-easymotion'
 
  " vim-scripts repos
- Bundle 'FuzzyFinder'
+ Plugin 'L9'
+ Plugin 'FuzzyFinder'
+
  " git repos on your local machine (ie. when working on your own plugin)
- " Bundle 'file:///Users/gmarik/path/to/plugin'
+ " Plugin 'file:///Users/gmarik/path/to/plugin'
  " ...
 
  filetype plugin indent on     " required!
  "
  " Brief help
- " :BundleList          - list configured bundles
- " :BundleInstall(!)    - install(update) bundles
- " :BundleSearch(!) foo - search(or refresh cache first) for foo
- " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+ " :PluginList          - list configured bundles
+ " :PluginInstall(!)    - install(update) bundles
+ " :PluginSearch(!) foo - search(or refresh cache first) for foo
+ " :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
  "
  " see :h vundle for more details or wiki for FAQ
- " NOTE: comments after Bundle command are not allowed..
+ " NOTE: comments after Plugin command are not allowed..
  "
  
 " allow backspacing over everything in insert mode
