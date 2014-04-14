@@ -36,6 +36,7 @@ Plugin 'gmarik/vundle'
  Plugin 'godlygeek/tabular'
  Plugin 'Yggdroot/indentLine'
  Plugin 'bling/vim-airline'
+ Plugin 'mileszs/ack.vim'
  "Plugin 'vim-scripts/greplace.vim'
 
  " Snipmate looks cool and depends on vim-addon-mw-utils and tlib_vim
