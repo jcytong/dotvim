@@ -150,19 +150,19 @@ nmap <C-K> <C-B>
 "BUFFERS
 "-------
 " Delete all buffers (Maps Bdall)
-map ,bda :Bdall <CR>
+map <Leader>bda :Bdall <CR>
 " Show current directory
-map ,dir :echo expand("%:p:h") <CR>
+map <Leader>dir :echo expand("%:p:h") <CR>
 
 "EDIT
 "----
 " Insert a line below the current line
-map ,o :a<CR><CR>.<CR>
+map <Leader>o :a<CR><CR>.<CR>
 " Insert a line above the current line
-map ,O :i<CR><CR>.<CR>
+map <Leader>O :i<CR><CR>.<CR>
 
 " Replace word under cursor with default register
-map ,r "_cw<ESC>p
+map <Leader>r "_cw<ESC>p
 
 "PLUGINS
 "-------
