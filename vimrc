@@ -164,6 +164,16 @@ map <Leader>O :i<CR><CR>.<CR>
 " Replace word under cursor with default register
 map <Leader>r "_cw<ESC>p
 
+" Git pull then refresh all buffers
+fun! PullAndRefresh()
+  set noconfirm
+  !git pull
+  bufdo e!
+  set confirm
+endfun
+
+nmap <leader>gr call PullAndRefresh()
+
 "PLUGINS
 "-------
 "NERDTree
