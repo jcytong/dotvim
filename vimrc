@@ -37,6 +37,8 @@ Plugin 'gmarik/vundle'
  Plugin 'Yggdroot/indentLine'
  Plugin 'bling/vim-airline'
  Plugin 'mileszs/ack.vim'
+ Plugin 'rizzatti/funcoo.vim'
+ Plugin 'rizzatti/dash.vim'
  "Plugin 'vim-scripts/greplace.vim'
 
  " Snipmate looks cool and depends on vim-addon-mw-utils and tlib_vim
@@ -199,6 +201,10 @@ augroup END
 " https://github.com/kchmck/vim-coffee-script#fold-by-indentation
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable 
+
+" dash.vim
+" https://github.com/rizzatti/dash.vim
+map <Leader>d :call Dash<CR>
 
 " vim-rspec
 " https://github.com/thoughtbot/vim-rspec/blob/master/README.md
