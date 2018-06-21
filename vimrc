@@ -164,6 +164,8 @@ map <Leader>O :i<CR><CR>.<CR>
 " Replace word under cursor with default register
 map <Leader>r "_cw<ESC>p
 
+map <Leader><ESC> :nohlsearch <CR>
+
 " Git pull then refresh all buffers
 fun! PullAndRefresh()
   set noconfirm
