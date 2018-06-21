@@ -144,8 +144,8 @@ map ¾ :bn <CR>
 map <S-Right> :tabnext <CR>
 map <S-Left> :tabprev <CR>
 " Map Ctrl-j,k for page up/down
-nmap <C-J> <C-F>
-nmap <C-K> <C-B>
+"nmap <C-J> <C-F>
+"nmap <C-K> <C-B>
 
 "BUFFERS
 "-------
@@ -174,7 +174,7 @@ fun! PullAndRefresh()
   set confirm
 endfun
 
-nmap <leader>gr call PullAndRefresh()
+nmap <Leader>gr call PullAndRefresh()
 
 "PLUGINS
 "-------
