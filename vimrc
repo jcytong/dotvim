@@ -2,61 +2,67 @@ set nocompatible
 filetype off            "required by vundle
 "filetype plugin on
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call plug#begin('~/.vim/plugged')
+
+"set rtp+=~/.vim/bundle/vundle/
+"call vundle#rc()
 " let Vundle manage Vundle
 " required! 
-Plugin 'gmarik/vundle'
+"Plugin 'gmarik/vundle'
 
 " My Plugins here:
  "
  " original repos on github
  "
  " These are interesting that I want to try someday
- "Plugin 'danro/rename.vim'
- "Plugin 'ervandew/supertab'
- "Plugin 'tpope/vim-surround'
- "Plugin 'tpope/vim-endwise'
+ "Plug 'danro/rename.vim'
+ "Plug 'ervandew/supertab'
+ Plug 'tpope/vim-surround'
+ Plug 'tpope/vim-endwise'
  
- Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
- Plugin 'tpope/vim-fugitive'
- Plugin 'tpope/vim-rails'
- Plugin 'tpope/vim-markdown'
- Plugin 'vim-ruby/vim-ruby'
- Plugin 'wincent/Command-T'
- Plugin 'altercation/vim-colors-solarized'
- Plugin 'thoughtbot/vim-rspec'
- Plugin 'gregsexton/MatchTag'
- Plugin 'kchmck/vim-coffee-script'
- Plugin 'terryma/vim-multiple-cursors'
- Plugin 'scrooloose/nerdcommenter'
- Plugin 'scrooloose/nerdtree'
- Plugin 'scrooloose/syntastic'
- Plugin 'cakebaker/scss-syntax.vim'
- Plugin 'godlygeek/tabular'
- Plugin 'Yggdroot/indentLine'
- Plugin 'bling/vim-airline'
- Plugin 'mileszs/ack.vim'
- Plugin 'rizzatti/funcoo.vim'
- Plugin 'rizzatti/dash.vim'
- "Plugin 'vim-scripts/greplace.vim'
+ "Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+ "Plug 'tristen/vim-sparkup'
+ Plug 'tpope/vim-fugitive'
+ Plug 'tpope/vim-rails'
+ Plug 'tpope/vim-markdown'
+ "Plug 'vim-ruby/vim-ruby'
+ Plug 'wincent/Command-T'
+ Plug 'altercation/vim-colors-solarized'
+ "Plug 'thoughtbot/vim-rspec'
+ Plug 'gregsexton/MatchTag'
+ Plug 'terryma/vim-multiple-cursors'
+ Plug 'scrooloose/nerdcommenter'
+ "Plug 'scrooloose/nerdtree'
+ Plug 'scrooloose/syntastic'
+ Plug 'cakebaker/scss-syntax.vim'
+ "Plug 'godlygeek/tabular'
+ "Plug 'Yggdroot/indentLine'
+ "Plug 'bling/vim-airline'
+Plug 'christoomey/vim-tmux-navigator'
+
+ " These plugin seems slow
+ "Plug 'mileszs/ack.vim'
+ "Plug 'rizzatti/funcoo.vim'
+ "Plug 'rizzatti/dash.vim'
+
+ "Plug 'vim-scripts/greplace.vim'
 
  " Snipmate looks cool and depends on vim-addon-mw-utils and tlib_vim
- Plugin 'MarcWeber/vim-addon-mw-utils'
- Plugin 'tomtom/tlib_vim'
- Plugin 'garbas/vim-snipmate'
+ Plug 'MarcWeber/vim-addon-mw-utils'
+ Plug 'tomtom/tlib_vim'
+ Plug 'garbas/vim-snipmate'
 
- "Plugin 'Lokaltog/vim-easymotion'
+ "Plug 'Lokaltog/vim-easymotion'
 
  " vim-scripts repos
- Plugin 'L9'
- Plugin 'FuzzyFinder'
+ Plug 'L9'
+ Plug 'FuzzyFinder'
 
  " git repos on your local machine (ie. when working on your own plugin)
- " Plugin 'file:///Users/gmarik/path/to/plugin'
+ " Plug 'file:///Users/gmarik/path/to/plugin'
  " ...
 
- filetype plugin indent on     " required!
+ "filetype plugin indent on     " required!
  "
  " Brief help
  " :PluginList          - list configured bundles
@@ -67,13 +73,15 @@ Plugin 'gmarik/vundle'
  " see :h vundle for more details or wiki for FAQ
  " NOTE: comments after Plugin command are not allowed..
  "
- 
+call plug#end()
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 set t_Co=256
 set nobackup            " DON'T keep a backup file
 set history=50          " keep 50 lines of command line history
 set ruler               " show the cursor position all the time
+set cursorline          " highlight the line cursor is on
 set showcmd             " display incomplete commands
 set incsearch           " do incremental searching
 set hlsearch            " hilight search
